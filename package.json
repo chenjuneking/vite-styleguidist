@@ -1,0 +1,90 @@
+{
+  "name": "vite-styleguidist",
+  "private": true,
+  "description": "A vue-styleguidist like project, base on vitepress",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/components.cjs.js",
+  "module": "./dist/components.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/components.es.js",
+      "require": "./dist/components.cjs.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
+  },
+  "scripts": {
+    "prepare": "husky install .husky",
+    "dev": "vite build -w",
+    "build": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "docs": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:serve": "vitepress serve src --port 4876",
+    "gen": "ts-node ./scripts/genComponent/index.ts"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.0",
+    "sql-formatter": "^8.2.0",
+    "vue": "^3.2.37"
+  },
+  "devDependencies": {
+    "@babel/types": "^7.18.7",
+    "@iconify/json": "^2.1.80",
+    "@types/file-saver": "^2.0.5",
+    "@types/hash-sum": "^1.0.0",
+    "@types/inquirer": "^8.2.1",
+    "@types/node": "^18.0.0",
+    "@types/splitpanes": "^2.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue-jsx": "^1.3.10",
+    "@vue/test-utils": "^2.0.2",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.1.1",
+    "execa": "^6.1.0",
+    "fflate": "^0.7.3",
+    "fs-extra": "^10.1.0",
+    "handlebars": "^4.7.7",
+    "hash-sum": "^2.0.0",
+    "husky": "^8.0.1",
+    "inquirer": "^8.2.0",
+    "jsdom": "^20.0.0",
+    "lint-staged": "^13.0.2",
+    "monaco-editor": "^0.33.0",
+    "postcss-html": "^1.4.1",
+    "prettier": "^2.7.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "rollup-plugin-copy": "^3.4.0",
+    "sass": "^1.53.0",
+    "splitpanes": "^3.1.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "sucrase": "^3.22.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4",
+    "unplugin-icons": "^0.14.7",
+    "unplugin-vue-components": "^0.21.1",
+    "vite": "^2.9.13",
+    "vite-dts": "^1.0.4",
+    "vite-plugin-static-copy": "^0.7.0",
+    "vitepress": "^1.0.0-alpha.4",
+    "vitest": "^0.18.0",
+    "vue-docgen-api": "^4.50.0",
+    "vue-eslint-parser": "^9.0.2",
+    "vue-tsc": "^0.38.2"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.37"
+  }
+}
