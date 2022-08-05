@@ -1,6 +1,6 @@
 <template>
   <div class="dp-{{className}}">
-    {{name}} {{zhName}}
+    {{name}}
     <p>\{{text}}</p>
     <button @click="handleClick">Click me</button>
   </div>
@@ -8,12 +8,12 @@
 
 <script setup lang="ts">
 /**
- * @displayName {{name}} {{zhName}}
+ * @displayName {{name}}
  */
 export interface I{{name}}Props {
   /**
-   * 测试属性
-   * @description 测试属性，仅供参考，实际使用需要删除
+   * The text
+   * @description this is a test property
    * @link https://vue-styleguidist.github.io/docs/Documenting.html
    */
   text: string
@@ -24,10 +24,10 @@ const props = withDefaults(defineProps<I{{name}}Props>(), {
 })
 
 const emit = defineEmits<{
-  /** click 事件
+  /** click event
    * @event click
    * @type {Event}
-   * @property {MouseEvent} ev - 事件对象
+   * @property {MouseEvent} ev - the event object
    */
   (event: 'click', ev: MouseEvent): void
 }>()

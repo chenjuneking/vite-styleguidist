@@ -4,7 +4,6 @@ import inquirer from 'inquirer'
 
 export interface IInputMeta {
   name: string
-  zhName: string
   desc: string
   className: string
 }
@@ -29,38 +28,28 @@ export const getUserInput = async () => {
   const meta: IInputMeta = await inquirer.prompt([
     {
       type: 'input',
-      message: '请输入你要新建的组件名（纯英文，大写开头）：',
+      message: 'Name of your component:',
       name: 'name',
       validate: function (input: string) {
         const done = (this as any).async()
         if (!/^[A-Z]\w+$/.test(input)) {
-          return done('组件名需要纯英文，大写开头！')
+          return done(
+            'The name of your component should start with a capital latter!'
+          )
         }
         if (
           isDirExists(path.resolve(path.resolve(), `src/components/${input}`))
         ) {
-          return done(`组件 ${input} 已存在!`)
+          return done(`Component ${input} is already exists`)
         }
         done(null, true)
       },
     },
     {
       type: 'input',
-      message: '请输入你要新建的组件名（中文）：',
-      name: 'zhName',
-      validate: function (input: string) {
-        const done = (this as any).async()
-        if (!/[\u4e00-\u9fa5]+/.test(input)) {
-          return done('请输入中文！')
-        }
-        done(null, true)
-      },
-    },
-    {
-      type: 'input',
-      message: '请输入组件的功能描述：',
+      message: 'Description of your component:',
       name: 'desc',
-      default: '默认：这是一个新组件',
+      default: 'This is a new component',
     },
   ])
   const { name } = meta

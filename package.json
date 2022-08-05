@@ -39,6 +39,7 @@
     "@babel/types": "^7.18.7",
     "@iconify/json": "^2.1.80",
     "@types/file-saver": "^2.0.5",
+    "@types/fs-extra": "^9.0.13",
     "@types/hash-sum": "^1.0.0",
     "@types/inquirer": "^8.2.1",
     "@types/node": "^18.0.0",

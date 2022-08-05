@@ -49,7 +49,6 @@ const replace = (filepath: string, replaceList: IFile[]): void => {
 }
 
 export const genTemplate = (meta: IInputMeta) => {
-  // 新生产文件
   files.forEach(({ from, to }) => {
     const content = fs.readFileSync(path.resolve(path.resolve(), from), 'utf-8')
     const toPath = handlebars.compile(to)(meta)
@@ -57,7 +56,6 @@ export const genTemplate = (meta: IInputMeta) => {
     write(toPath, toContent)
   })
 
-  // 新增 export 记录
   replace('src/components/index.ts', [
     {
       from: EXPORT_LINE,
@@ -69,21 +67,13 @@ export const genTemplate = (meta: IInputMeta) => {
     },
   ])
 
-  // 新增 vitepress link 记录
   replace('src/components/createLinks.ts', [
     {
       from: EXPORT_LINK_LINE,
       to: `{
-      text: '${meta.name} ${meta.zhName}',
+      text: '${meta.name}',
       link: '/components/${meta.name}/Readme',
     },`,
     },
   ])
-
-  // replace('../../configs/styleguide.config.js', [
-  //     {
-  //         from: DOC_LINE,
-  //         to: `'../src/components/${meta.name}/index.vue',`
-  //     },
-  // ])
 }

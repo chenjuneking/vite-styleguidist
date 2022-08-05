@@ -8,12 +8,6 @@
 pnpm run gen
 ```
 
-#### Run test
-
-```sh
-pnpm run test
-```
-
 #### Serve on locally
 
 ```sh
@@ -25,4 +19,10 @@ pnpm run docs
 
 ```sh
 pnpm run build
+```
+
+#### Run test
+
+```sh
+pnpm run test
 ```
