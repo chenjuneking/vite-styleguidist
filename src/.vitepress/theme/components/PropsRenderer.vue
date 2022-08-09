@@ -39,7 +39,7 @@
         </td>
         <td>
           <code>
-            {{ prop.defaultValue.value }}
+            {{ prop.defaultValue ? prop.defaultValue.value : '-' }}
           </code>
         </td>
       </tr>
